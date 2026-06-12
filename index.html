@@ -3,858 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prestige Corporate Gifts — Regalos Empresariales de Impacto</title>
+  <title>VITA — Regalos Empresariales de Impacto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* ========================
-       DESIGN TOKENS
-    ======================== */
     :root {
-      --blue:        #7B8FB0;
-      --blue-dark:   #5a6e8f;
-      --blue-light:  #a3b3cc;
-      --blue-pale:   #e8ecf4;
-      --navy:        #1e2a3a;
-      --cream:       #f9f7f4;
-      --white:       #ffffff;
-      --text:        #2c3a4a;
-      --text-muted:  #5e6e82;
-      --border:      #dce2ed;
-      --gold:        #c9a96e;
-      --gold-light:  #e8d5b0;
-
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
-
-      --radius-sm: 6px;
-      --radius-md: 14px;
-      --radius-lg: 24px;
-
-      --shadow-sm: 0 2px 8px rgba(30,42,58,.08);
-      --shadow-md: 0 8px 32px rgba(30,42,58,.12);
-      --shadow-lg: 0 20px 60px rgba(30,42,58,.16);
-
-      --transition: 0.3s cubic-bezier(.4,0,.2,1);
-      --max-w: 1200px;
-    }
-
-    /* ========================
-       RESET & BASE
-    ======================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { display: block; max-width: 100%; height: auto; }
-    a   { color: inherit; text-decoration: none; }
-
-    /* ========================
-       UTILITY
-    ======================== */
-    .container {
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 28px; height: 2px;
-      background: var(--gold);
-      border-radius: 2px;
-    }
-
-    h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
-
-    /* ========================
-       BUTTONS
-    ======================== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 52px;
-      padding: 0 32px;
-      border-radius: 50px;
-      font-family: var(--font-body);
-      font-size: .95rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--navy);
-      color: var(--white);
-      box-shadow: 0 4px 20px rgba(30,42,58,.25);
-    }
-    .btn-primary:hover {
-      background: var(--blue-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(30,42,58,.3);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid var(--navy);
-    }
-    .btn-outline:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--white);
-      box-shadow: 0 4px 20px rgba(201,169,110,.35);
-    }
-    .btn-gold:hover {
-      background: #b89056;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(201,169,110,.45);
-    }
-
-    /* ========================
-       NAVBAR
-    ======================== */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(249,247,244,.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .navbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: var(--navy);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-size: .9rem;
-    }
-    .nav-links {
-      display: none;
-      list-style: none;
-      gap: 36px;
-    }
-    .nav-links a {
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: color var(--transition);
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-cta { display: none; }
-
-    @media (min-width: 768px) {
-      .nav-links { display: flex; }
-      .nav-cta   { display: inline-flex; }
-    }
-
-    /* ========================
-       HERO
-    ======================== */
-    .hero {
-      overflow: hidden;
-      background: var(--navy);
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-    }
-    .hero-bg-pattern {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 20% 50%, rgba(123,143,176,.18) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(201,169,110,.12) 0%, transparent 45%);
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 60px;
-      align-items: center;
-      padding: 80px 20px;
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-    .hero-content { color: var(--white); }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 50px;
-      padding: 6px 16px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 28px;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--white);
-      line-height: 1.1;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255,255,255,.7);
-      max-width: 520px;
-      margin-bottom: 40px;
-      font-weight: 300;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .hero-actions .btn-outline {
-      color: var(--white);
-      border-color: rgba(255,255,255,.35);
-    }
-    .hero-actions .btn-outline:hover {
-      background: rgba(255,255,255,.12);
-      border-color: rgba(255,255,255,.6);
-    }
-    .hero-stats {
-      display: flex;
-      gap: 36px;
-      margin-top: 52px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      flex-wrap: wrap;
-    }
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-    .hero-stat-label {
-      font-size: .82rem;
-      color: rgba(255,255,255,.55);
-      letter-spacing: .04em;
-    }
-    .hero-image-wrap {
-      position: relative;
-    }
-    .hero-image-wrap img {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-    }
-    .hero-image-badge {
-      position: absolute;
-      bottom: -16px;
-      left: 20px;
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 14px 20px;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-image-badge-icon {
-      width: 40px; height: 40px;
-      background: var(--blue-pale);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue);
-      font-size: 1rem;
-    }
-    .hero-image-badge-text strong { display: block; font-size: .9rem; color: var(--navy); }
-    .hero-image-badge-text span   { font-size: .78rem; color: var(--text-muted); }
-
-    @media (min-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* ========================
-       CLIENTS BAR
-    ======================== */
-    .clients-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 20px;
-    }
-    .clients-bar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px 48px;
-      flex-wrap: wrap;
-    }
-    .clients-label {
-      font-size: .78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-    .clients-logos {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .client-logo {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--blue-light);
-      letter-spacing: .06em;
-      transition: color var(--transition);
-    }
-    .client-logo:hover { color: var(--navy); }
-
-    /* ========================
-       SERVICES
-    ======================== */
-    .services {
-      padding: 100px 20px;
-      background: var(--cream);
-    }
-    .services-head {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 60px;
-    }
-    .services-head h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-    .services-head p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-    .services-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: 1fr;
-    }
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--blue-light);
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 60px; height: 60px;
-      background: var(--blue-pale);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue-dark);
-      font-size: 1.4rem;
-      margin-bottom: 24px;
-      transition: var(--transition);
-    }
-    .service-card:hover .service-icon {
-      background: var(--navy);
-      color: var(--gold);
-    }
-    .service-card h3 {
-      font-size: 1.2rem;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .service-card p {
-      color: var(--text-muted);
-      font-size: .93rem;
-      line-height: 1.7;
-    }
-    .service-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 20px;
-      font-size: .88rem;
-      font-weight: 600;
-      color: var(--blue-dark);
-      transition: gap var(--transition);
-    }
-    .service-link:hover { gap: 10px; }
-
-    @media (min-width: 640px)  { .services-grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-    /* ========================
-       CASE STUDIES
-    ======================== */
-    .cases {
-      padding: 100px 20px;
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-    .cases-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 80% 20%, rgba(123,143,176,.12) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    .cases-head {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 64px;
-    }
-    .cases-head h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-    .cases-head p { color: rgba(255,255,255,.6); font-size: 1.05rem; }
-    .cases-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: 1fr;
-      position: relative;
-      z-index: 2;
-    }
-    .case-card {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    .case-card:hover {
-      background: rgba(255,255,255,.08);
-      border-color: rgba(201,169,110,.4);
-      transform: translateY(-4px);
-    }
-    .case-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .case-body { padding: 32px; }
-    .case-tag {
-      display: inline-block;
-      background: rgba(201,169,110,.18);
-      color: var(--gold-light);
-      border-radius: 50px;
-      padding: 4px 14px;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    .case-body h3 {
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .case-body p {
-      color: rgba(255,255,255,.6);
-      font-size: .92rem;
-      margin-bottom: 28px;
-    }
-    .case-metrics {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .metric { }
-    .metric-num {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-    .metric-label {
-      font-size: .78rem;
-      color: rgba(255,255,255,.45);
-    }
-
-    @media (min-width: 768px)  { .cases-grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1024px) { .cases-grid { grid-template-columns: repeat(3, 1fr); } }
-
-    /* ========================
-       PROCESS STRIP
-    ======================== */
-    .process {
-      padding: 80px 20px;
-      background: var(--blue-pale);
-    }
-    .process-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      align-items: center;
-      text-align: center;
-    }
-    .process-head h2 {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      color: var(--navy);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .process-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      width: 100%;
-      max-width: 900px;
-    }
-    .process-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      padding: 32px 20px;
-      position: relative;
-    }
-    .step-num {
-      width: 52px; height: 52px;
-      background: var(--navy);
-      color: var(--gold);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .process-step h4 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--navy);
-    }
-    .process-step p { font-size: .88rem; color: var(--text-muted); max-width: 200px; }
-
-    @media (min-width: 640px) {
-      .process-steps { grid-template-columns: repeat(4, 1fr); }
-      .process-step::after {
-        content: '';
-        position: absolute;
-        top: 58px;
-        right: -1px;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, var(--blue-light), transparent);
-      }
-      .process-step:last-child::after { display: none; }
-    }
-
-    /* ========================
-       TESTIMONIAL
-    ======================== */
-    .testimonial-strip {
-      padding: 80px 20px;
-      background: var(--white);
-    }
-    .testimonial-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 24px; letter-spacing: 4px; }
-    blockquote {
-      font-family: var(--font-display);
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      color: var(--navy);
-      font-style: italic;
-      line-height: 1.5;
-      margin-bottom: 28px;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-    }
-    .testimonial-avatar {
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--blue-pale);
-    }
-    .testimonial-name { font-weight: 600; font-size: .92rem; color: var(--navy); }
-    .testimonial-role { font-size: .82rem; color: var(--text-muted); }
-
-    /* ========================
-       CONTACT / FORM
-    ======================== */
-    .contact {
-      padding: 100px 20px;
-      background: var(--cream);
-    }
-    .contact-grid {
-      display: grid;
-      gap: 60px;
-      align-items: start;
-    }
-    .contact-info h2 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-    .contact-info > p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-    .contact-details { display: flex; flex-direction: column; gap: 20px; }
-    .contact-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .contact-detail-icon {
-      width: 44px; height: 44px;
-      background: var(--blue-pale);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue-dark);
-      flex-shrink: 0;
-    }
-    .contact-detail strong { display: block; font-size: .88rem; color: var(--navy); margin-bottom: 2px; }
-    .contact-detail span  { font-size: .88rem; color: var(--text-muted); }
-
-    .form-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      box-shadow: var(--shadow-md);
-    }
-    .form-card h3 {
-      font-size: 1.4rem;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .form-card > p {
-      font-size: .9rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-    .form-row {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label {
-      font-size: .83rem;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: .02em;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 13px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: var(--font-body);
-      font-size: .93rem;
-      color: var(--text);
-      background: var(--cream);
-      transition: border-color var(--transition), box-shadow var(--transition);
-      outline: none;
-      min-height: 48px;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(123,143,176,.15);
-      background: var(--white);
-    }
-    .form-group textarea { min-height: 130px; resize: vertical; }
-    .form-submit { width: 100%; margin-top: 8px; font-size: 1rem; }
-    .form-note {
-      text-align: center;
-      margin-top: 14px;
-      font-size: .78rem;
-      color: var(--text-muted);
-    }
-    .form-note i { color: var(--gold); }
-
-    @media (min-width: 600px)  { .form-row { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.3fr; } }
-
-    /* ========================
-       FOOTER
-    ======================== */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.6);
-      padding: 64px 20px 32px;
-    }
-    .footer-grid {
-      display: grid;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-    .footer-brand .logo { color: var(--white); margin-bottom: 16px; }
-    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 280px; }
-    .footer-col h4 {
-      font-family: var(--font-body);
-      font-size: .82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a {
-      font-size: .88rem;
-      transition: color var(--transition);
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      text-align: center;
-    }
-    .footer-legal { font-size: .82rem; }
-    .social-links { display: flex; gap: 12px; }
-    .social-link {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.08);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.6);
-      font-size: .9rem;
-      transition: var(--transition);
-    }
-    .social-link:hover {
-      background: var(--gold);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    @media (min-width: 600px)  { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 900px)  { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-    @media (min-width: 768px)  { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
-
-    /* ========================
-       ANIMATIONS
-    ======================== */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-content > * {
-      animation: fadeUp .7s ease both;
-    }
-    .hero-badge   { animation-delay: .1s; }
-    .hero h1      { animation-delay: .2s; }
-    .hero-sub     { animation-delay: .3s; }
-    .hero-actions { animation-delay: .4s; }
-    .hero-stats   { animation-delay: .5s; }
-
-    /* scroll-reveal via JS */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+      --blue:#7B8FB0;--blue-dark:#5a6e8f;--blue-light:#a3b3cc;--blue-pale:#e8ecf4;
+      --navy:#1e2a3a;--cream:#f9f7f4;--white:#ffffff;--text:#2c3a4a;--text-muted:#5e6e82;
+      --border:#dce2ed;--gold:#c9a96e;--gold-light:#e8d5b0;
+      --font-display:'Playfair Display',Georgia,serif;--font-body:'DM Sans',sans-serif;
+      --radius-sm:6px;--radius-md:14px;--radius-lg:24px;
+      --shadow-sm:0 2px 8px rgba(30,42,58,.08);--shadow-md:0 8px 32px rgba(30,42,58,.12);--shadow-lg:0 20px 60px rgba(30,42,58,.16);
+      --transition:0.3s cubic-bezier(.4,0,.2,1);--max-w:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .section-label::before{content:'';display:block;width:28px;height:2px;background:var(--gold);border-radius:2px}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.2}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 32px;border-radius:50px;font-family:var(--font-body);font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:var(--transition);text-decoration:none;white-space:nowrap}
+    .btn-primary{background:var(--navy);color:var(--white);box-shadow:0 4px 20px rgba(30,42,58,.25)}
+    .btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(30,42,58,.3)}
+    .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+    .btn-outline:hover{background:var(--navy);color:var(--white);transform:translateY(-2px)}
+    .btn-gold{background:var(--gold);color:var(--white);box-shadow:0 4px 20px rgba(201,169,110,.35)}
+    .btn-gold:hover{background:#b89056;transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,169,110,.45)}
+    .navbar{position:sticky;top:0;z-index:100;background:rgba(249,247,244,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .navbar-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--navy)}
+    .nav-links{display:none;list-style:none;gap:36px}
+    .nav-links a{font-size:.9rem;font-weight:500;color:var(--text-muted);transition:color var(--transition)}
+    .nav-links a:hover{color:var(--navy)}
+    .nav-cta{display:none}
+    @media(min-width:768px){.nav-links{display:flex}.nav-cta{display:inline-flex}}
+    .hero{overflow:hidden;background:var(--navy);position:relative;min-height:90vh;display:flex;align-items:center}
+    .hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(123,143,176,.18) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(201,169,110,.12) 0%,transparent 45%)}
+    .hero-inner{position:relative;z-index:2;display:grid;gap:60px;align-items:center;padding:80px 20px;width:100%;max-width:var(--max-w);margin:0 auto}
+    .hero-content{color:var(--white)}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:6px 16px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:28px}
+    .hero h1{font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:24px;color:var(--white);line-height:1.1}
+    .hero h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:rgba(255,255,255,.7);max-width:520px;margin-bottom:40px;font-weight:300}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+    .hero-actions .btn-outline{color:var(--white);border-color:rgba(255,255,255,.35)}
+    .hero-actions .btn-outline:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+    .hero-stats{display:flex;gap:36px;margin-top:52px;padding-top:36px;border-top:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
+    .hero-stat-num{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--gold);display:block}
+    .hero-stat-label{font-size:.82rem;color:rgba(255,255,255,.55);letter-spacing:.04em}
+    .hero-image-wrap{position:relative}
+    .hero-image-wrap img{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+    .hero-image-badge{position:absolute;bottom:-16px;left:20px;background:var(--white);border-radius:var(--radius-md);padding:14px 20px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px}
+    .hero-image-badge-icon{width:40px;height:40px;background:var(--blue-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:1rem}
+    .hero-image-badge-text strong{display:block;font-size:.9rem;color:var(--navy)}
+    .hero-image-badge-text span{font-size:.78rem;color:var(--text-muted)}
+    @media(min-width:900px){.hero-inner{grid-template-columns:1fr 1fr}}
+    .clients-bar{background:var(--white);border-bottom:1px solid var(--border);padding:28px 20px}
+    .clients-bar-inner{display:flex;align-items:center;justify-content:center;gap:16px 48px;flex-wrap:wrap}
+    .clients-label{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);white-space:nowrap}
+    .clients-logos{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center}
+    .client-logo{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--blue-light);letter-spacing:.06em;transition:color var(--transition)}
+    .client-logo:hover{color:var(--navy)}
+    .services{padding:100px 20px;background:var(--cream)}
+    .services-head{text-align:center;max-width:600px;margin:0 auto 60px}
+    .services-head h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:16px}
+    .services-head p{color:var(--text-muted);font-size:1.05rem}
+    .services-grid{display:grid;gap:24px;grid-template-columns:1fr}
+    .service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;transition:var(--transition);position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform var(--transition)}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue-light)}
+    .service-card:hover::before{transform:scaleX(1)}
+    .service-icon{width:60px;height:60px;background:var(--blue-pale);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--blue-dark);font-size:1.4rem;margin-bottom:24px;transition:var(--transition)}
+    .service-card:hover .service-icon{background:var(--navy);color:var(--gold)}
+    .service-card h3{font-size:1.2rem;color:var(--navy);margin-bottom:12px}
+    .service-card p{color:var(--text-muted);font-size:.93rem;line-height:1.7}
+    .service-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:.88rem;font-weight:600;color:var(--blue-dark);transition:gap var(--transition)}
+    .service-link:hover{gap:10px}
+    @media(min-width:640px){.services-grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:1024px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+    .cases{padding:100px 20px;background:var(--navy);position:relative;overflow:hidden}
+    .cases-bg{position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(123,143,176,.12) 0%,transparent 55%);pointer-events:none}
+    .cases-head{text-align:center;max-width:600px;margin:0 auto 64px}
+    .cases-head h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--white);margin-bottom:16px}
+    .cases-head p{color:rgba(255,255,255,.6);font-size:1.05rem}
+    .cases-grid{display:grid;gap:24px;grid-template-columns:1fr;position:relative;z-index:2}
+    .case-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition)}
+    .case-card:hover{background:rgba(255,255,255,.08);border-color:rgba(201,169,110,.4);transform:translateY(-4px)}
+    .case-img{width:100%;height:200px;object-fit:cover}
+    .case-body{padding:32px}
+    .case-tag{display:inline-block;background:rgba(201,169,110,.18);color:var(--gold-light);border-radius:50px;padding:4px 14px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+    .case-body h3{font-size:1.2rem;color:var(--white);margin-bottom:12px}
+    .case-body p{color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:28px}
+    .case-metrics{display:flex;gap:24px;flex-wrap:wrap}
+    .metric-num{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);display:block}
+    .metric-label{font-size:.78rem;color:rgba(255,255,255,.45)}
+    @media(min-width:768px){.cases-grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:1024px){.cases-grid{grid-template-columns:repeat(3,1fr)}}
+    .process{padding:80px 20px;background:var(--blue-pale)}
+    .process-inner{display:flex;flex-direction:column;gap:32px;align-items:center;text-align:center}
+    .process-head h2{font-size:clamp(1.6rem,3vw,2.4rem);color:var(--navy);max-width:500px;margin:0 auto}
+    .process-steps{display:grid;grid-template-columns:1fr;gap:0;width:100%;max-width:900px}
+    .process-step{display:flex;flex-direction:column;align-items:center;gap:12px;padding:32px 20px;position:relative}
+    .step-num{width:52px;height:52px;background:var(--navy);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.1rem;font-weight:700;flex-shrink:0}
+    .process-step h4{font-family:var(--font-display);font-size:1rem;color:var(--navy)}
+    .process-step p{font-size:.88rem;color:var(--text-muted);max-width:200px}
+    @media(min-width:640px){.process-steps{grid-template-columns:repeat(4,1fr)}.process-step::after{content:'';position:absolute;top:58px;right:-1px;width:100%;height:2px;background:linear-gradient(90deg,var(--blue-light),transparent)}.process-step:last-child::after{display:none}}
+    .testimonial-strip{padding:80px 20px;background:var(--white)}
+    .testimonial-inner{max-width:800px;margin:0 auto;text-align:center}
+    .stars{color:var(--gold);font-size:1.1rem;margin-bottom:24px;letter-spacing:4px}
+    blockquote{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.7rem);color:var(--navy);font-style:italic;line-height:1.5;margin-bottom:28px}
+    .testimonial-author{display:flex;align-items:center;justify-content:center;gap:14px}
+    .testimonial-avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid var(--blue-pale)}
+    .testimonial-name{font-weight:600;font-size:.92rem;color:var(--navy)}
+    .testimonial-role{font-size:.82rem;color:var(--text-muted)}
+    .contact{padding:100px 20px;background:var(--cream)}
+    .contact-grid{display:grid;gap:60px;align-items:start}
+    .contact-info h2{font-size:clamp(1.8rem,3vw,2.5rem);color:var(--navy);margin-bottom:16px}
+    .contact-info>p{color:var(--text-muted);font-size:1rem;margin-bottom:40px;line-height:1.7}
+    .contact-details{display:flex;flex-direction:column;gap:20px}
+    .contact-detail{display:flex;align-items:flex-start;gap:16px}
+    .contact-detail-icon{width:44px;height:44px;background:var(--blue-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue-dark);flex-shrink:0}
+    .contact-detail strong{display:block;font-size:.88rem;color:var(--navy);margin-bottom:2px}
+    .contact-detail span{font-size:.88rem;color:var(--text-muted)}
+    .form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;box-shadow:var(--shadow-md)}
+    .form-card h3{font-size:1.4rem;color:var(--navy);margin-bottom:6px}
+    .form-card>p{font-size:.9rem;color:var(--text-muted);margin-bottom:28px}
+    .form-row{display:grid;gap:16px;margin-bottom:16px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    .form-group label{font-size:.83rem;font-weight:600;color:var(--navy);letter-spacing:.02em}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.93rem;color:var(--text);background:var(--cream);transition:border-color var(--transition),box-shadow var(--transition);outline:none;min-height:48px}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(123,143,176,.15);background:var(--white)}
+    .form-group textarea{min-height:130px;resize:vertical}
+    .form-submit{width:100%;margin-top:8px;font-size:1rem}
+    .form-note{text-align:center;margin-top:14px;font-size:.78rem;color:var(--text-muted)}
+    .form-note i{color:var(--gold)}
+    @media(min-width:600px){.form-row{grid-template-columns:1fr 1fr}}
+    @media(min-width:1024px){.contact-grid{grid-template-columns:1fr 1.3fr}}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:64px 20px 32px}
+    .footer-grid{display:grid;gap:40px;margin-bottom:48px}
+    .footer-brand p{font-size:.88rem;line-height:1.7;max-width:280px}
+    .footer-col h4{font-family:var(--font-body);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--white);margin-bottom:20px}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:.88rem;transition:color var(--transition)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+    .footer-legal{font-size:.82rem}
+    .social-links{display:flex;gap:12px}
+    .social-link{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;transition:var(--transition)}
+    .social-link:hover{background:var(--gold);color:var(--white);transform:translateY(-2px)}
+    @media(min-width:600px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+    @media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .hero-content>*{animation:fadeUp .7s ease both}
+    .hero-badge{animation-delay:.1s}.hero h1{animation-delay:.2s}.hero-sub{animation-delay:.3s}.hero-actions{animation-delay:.4s}.hero-stats{animation-delay:.5s}
+    .padre{padding:100px 20px;background:var(--white)}
+    .padre-head{text-align:center;max-width:620px;margin:0 auto 64px}
+    .padre-head h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:16px}
+    .padre-head p{color:var(--text-muted);font-size:1.05rem}
+    .padre-grid{display:grid;gap:28px;grid-template-columns:1fr;margin-bottom:56px}
+    .padre-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition)}
+    .padre-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .featured-card{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,169,110,.2)}
+    .padre-img-wrap{position:relative;height:240px;overflow:hidden}
+    .padre-img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+    .padre-card:hover .padre-img{transform:scale(1.04)}
+    .padre-badge{position:absolute;top:16px;right:16px;background:var(--white);color:var(--navy);border-radius:50px;padding:5px 14px;font-size:.75rem;font-weight:700;letter-spacing:.04em;box-shadow:var(--shadow-sm)}
+    .badge-gold{background:var(--gold);color:var(--white)}
+    .badge-navy{background:var(--navy);color:var(--white)}
+    .padre-body{padding:28px}
+    .padre-tag{display:inline-block;background:var(--blue-pale);color:var(--blue-dark);border-radius:50px;padding:3px 12px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+    .padre-body h3{font-size:1.3rem;color:var(--navy);margin-bottom:4px}
+    .padre-subtitle{font-size:.85rem;color:var(--gold);font-weight:600;margin-bottom:12px!important}
+    .padre-body p{color:var(--text-muted);font-size:.92rem;line-height:1.65;margin-bottom:20px}
+    .padre-cta{min-height:44px;padding:0 24px;font-size:.88rem}
+    .padre-cta-bottom{background:var(--blue-pale);border-radius:var(--radius-lg);padding:32px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+    .padre-cta-bottom p{color:var(--text-muted);font-size:1rem}
+    .padre-cta-bottom strong{color:var(--navy)}
+    @media(min-width:768px){.padre-grid{grid-template-columns:repeat(3,1fr)}.padre-cta-bottom{flex-direction:row;text-align:left;justify-content:space-between}}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
   </style>
 </head>
 <body>
-
-<!-- ========================
-     NAVBAR
-======================== -->
 <nav class="navbar">
   <div class="container navbar-inner">
     <a href="#" class="logo">
-      <span class="logo-icon"><i class="fas fa-gift"></i></span>
-      Prestige Gifts
+      <img src="https://juanacafassovita.github.io/vita/LOGO.webp" alt="VITA" style="height:44px;width:auto;" />
     </a>
     <ul class="nav-links">
       <li><a href="#services">Servicios</a></li>
@@ -864,61 +204,32 @@
     <a href="#contact" class="btn btn-primary nav-cta">Pedir Cotización</a>
   </div>
 </nav>
-
-<!-- ========================
-     HERO
-======================== -->
 <section class="hero" id="home">
   <div class="hero-bg-pattern"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-star"></i>
-        Con la confianza de más de 500 empresas
-      </div>
+      <div class="hero-badge"><i class="fas fa-star"></i> Con la confianza de más de 500 empresas</div>
       <h1>Regalos Corporativos<br>que Dejan <em>Huella</em><br>Duradera</h1>
       <p class="hero-sub">Creamos programas de regalos premium y a medida que fortalecen relaciones comerciales, potencian la fidelidad del equipo y elevan tu marca en cada momento clave.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-gold">
-          <i class="fas fa-paper-plane"></i>
-          Solicitar Propuesta
-        </a>
-        <a href="#cases" class="btn btn-outline">
-          <i class="fas fa-play"></i>
-          Ver Nuestros Casos
-        </a>
+        <a href="#contact" class="btn btn-gold"><i class="fas fa-paper-plane"></i> Solicitar Propuesta</a>
+        <a href="#cases" class="btn btn-outline"><i class="fas fa-play"></i> Ver Nuestros Casos</a>
       </div>
       <div class="hero-stats">
-        <div>
-          <span class="hero-stat-num">500+</span>
-          <span class="hero-stat-label">Clientes Corporativos</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">12M+</span>
-          <span class="hero-stat-label">Regalos Entregados</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">98%</span>
-          <span class="hero-stat-label">Satisfacción del Cliente</span>
-        </div>
+        <div><span class="hero-stat-num">500+</span><span class="hero-stat-label">Clientes Corporativos</span></div>
+        <div><span class="hero-stat-num">12M+</span><span class="hero-stat-label">Regalos Entregados</span></div>
+        <div><span class="hero-stat-num">98%</span><span class="hero-stat-label">Satisfacción del Cliente</span></div>
       </div>
     </div>
     <div class="hero-image-wrap reveal">
-      <img src="https://placehold.co/600x480/2c3a4a/7b8fb0?text=Premium+Corporate+Gifts" alt="Colección de Regalos Corporativos Premium" />
+      <img src="https://juanacafassovita.github.io/vita/imagenLAND.jpg" alt="VITA Regalos Empresariales" />
       <div class="hero-image-badge">
         <div class="hero-image-badge-icon"><i class="fas fa-box-open"></i></div>
-        <div class="hero-image-badge-text">
-          <strong>Entrega de Primer Nivel</strong>
-          <span>Packaging personalizado incluido</span>
-        </div>
+        <div class="hero-image-badge-text"><strong>Entrega de Primer Nivel</strong><span>Packaging personalizado incluido</span></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ========================
-     CLIENTS BAR
-======================== -->
 <div class="clients-bar">
   <div class="clients-bar-inner">
     <span class="clients-label">Con la confianza de</span>
@@ -932,10 +243,6 @@
     </div>
   </div>
 </div>
-
-<!-- ========================
-     SERVICES
-======================== -->
 <section class="services" id="services">
   <div class="container">
     <div class="services-head reveal">
@@ -971,10 +278,6 @@
     </div>
   </div>
 </section>
-
-<!-- ========================
-     CASE STUDIES
-======================== -->
 <section class="cases" id="cases">
   <div class="cases-bg"></div>
   <div class="container">
@@ -984,70 +287,99 @@
       <p>Resultados reales de programas reales — medidos en retención, compromiso y retorno de inversión.</p>
     </div>
     <div class="cases-grid">
-      <!-- Case 1 -->
       <div class="case-card reveal">
-        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/7b8fb0?text=FinTech+Client" alt="Programa Cliente FinTech" />
+        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/7b8fb0?text=FinTech+Client" alt="FinTech" />
         <div class="case-body">
           <span class="case-tag">Servicios Financieros</span>
           <h3>Programa de Bienvenida Global para una Empresa FinTech Líder</h3>
-          <p>Diseñamos un programa de kits de bienvenida en 3 niveles para nuevos clientes corporativos en 12 países, alineado al tamaño del contrato y la relación comercial.</p>
+          <p>Diseñamos un programa de kits de bienvenida en 3 niveles para nuevos clientes corporativos en 12 países.</p>
           <div class="case-metrics">
-            <div class="metric">
-              <span class="metric-num">+47%</span>
-              <span class="metric-label">Tasa de Retención de Clientes</span>
-            </div>
-            <div class="metric">
-              <span class="metric-num">22</span>
-              <span class="metric-label">Países Alcanzados</span>
-            </div>
+            <div class="metric"><span class="metric-num">+47%</span><span class="metric-label">Tasa de Retención</span></div>
+            <div class="metric"><span class="metric-num">22</span><span class="metric-label">Países Alcanzados</span></div>
           </div>
         </div>
       </div>
-      <!-- Case 2 -->
       <div class="case-card reveal" style="--d:.1s">
-        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/c9a96e?text=Tech+Company" alt="Regalos Empresa Tecnológica" />
+        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/c9a96e?text=Tech+Company" alt="Tech" />
         <div class="case-body">
           <span class="case-tag">Tecnología</span>
           <h3>Regalos de Fin de Año para una Empresa Tecnológica de 4.000 Empleados</h3>
-          <p>Un programa de fin de año totalmente personalizado con preferencias individuales capturadas digitalmente, garantizando que cada empleado recibiera algo que realmente deseaba.</p>
+          <p>Programa personalizado con preferencias individuales capturadas digitalmente.</p>
           <div class="case-metrics">
-            <div class="metric">
-              <span class="metric-num">96%</span>
-              <span class="metric-label">Satisfacción de Empleados</span>
-            </div>
-            <div class="metric">
-              <span class="metric-num">4,000+</span>
-              <span class="metric-label">Regalos Entregados</span>
-            </div>
+            <div class="metric"><span class="metric-num">96%</span><span class="metric-label">Satisfacción</span></div>
+            <div class="metric"><span class="metric-num">4.000+</span><span class="metric-label">Regalos</span></div>
           </div>
         </div>
       </div>
-      <!-- Case 3 -->
       <div class="case-card reveal" style="--d:.2s">
-        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/a3b3cc?text=Consulting+Firm" alt="Regalos para Evento Consultora" />
+        <img class="case-img" src="https://placehold.co/600x220/1e2a3a/a3b3cc?text=Consulting" alt="Consulting" />
         <div class="case-body">
           <span class="case-tag">Servicios Profesionales</span>
-          <h3>Estrategia de Regalos para Cumbre Ejecutiva de una Consultora Global Top 5</h3>
-          <p>Kits de regalo premium para ejecutivos C-suite en una cumbre de liderazgo exclusiva — diseñados para reforzar el prestigio de la marca y crear recuerdos duraderos.</p>
+          <h3>Estrategia de Regalos para Cumbre Ejecutiva de Consultora Global Top 5</h3>
+          <p>Kits premium para ejecutivos C-suite en cumbre de liderazgo exclusiva.</p>
           <div class="case-metrics">
-            <div class="metric">
-              <span class="metric-num">340</span>
-              <span class="metric-label">Kits VIP Entregados</span>
-            </div>
-            <div class="metric">
-              <span class="metric-num">100%</span>
-              <span class="metric-label">Entrega a Tiempo</span>
-            </div>
+            <div class="metric"><span class="metric-num">340</span><span class="metric-label">Kits VIP</span></div>
+            <div class="metric"><span class="metric-num">100%</span><span class="metric-label">A Tiempo</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ========================
-     PROCESS
-======================== -->
+<section class="padre" id="dia-del-padre">
+  <div class="container">
+    <div class="padre-head reveal">
+      <span class="section-label">Edición Especial</span>
+      <h2>Boxes Día del Padre 🎁</h2>
+      <p>Tres opciones pensadas para cada estilo y presupuesto. Packaging premium, entrega coordinada y tarjeta personalizada incluida.</p>
+    </div>
+    <div class="padre-grid">
+      <div class="padre-card reveal">
+        <div class="padre-img-wrap">
+          <img src="https://juanacafassovita.github.io/vita/BOX1.jpg" alt="Box Económica" class="padre-img" />
+          <span class="padre-badge">Más accesible</span>
+        </div>
+        <div class="padre-body">
+          <span class="padre-tag">Opción 1</span>
+          <h3>'Económica' Box</h3>
+          <p class="padre-subtitle">Valor Práctico</p>
+          <p>Termo VITA, café drip premium x3, agenda y lapicera. Todo en packaging kraft con tarjeta corporativa personalizada.</p>
+          <a href="#contact" class="btn btn-outline padre-cta">Consultar precio</a>
+        </div>
+      </div>
+      <div class="padre-card reveal featured-card" style="--d:.1s">
+        <div class="padre-img-wrap">
+          <img src="https://juanacafassovita.github.io/vita/BOX2.jpeg" alt="Box Media" class="padre-img" />
+          <span class="padre-badge badge-gold">Más elegido</span>
+        </div>
+        <div class="padre-body">
+          <span class="padre-tag">Opción 2</span>
+          <h3>'Media' Box</h3>
+          <p class="padre-subtitle">Pausa Ejecutiva</p>
+          <p>Yerba mate premium, mate VITA, bombilla, chocolates artesanales. Caja negra premium con moño y tarjeta personalizada.</p>
+          <a href="#contact" class="btn btn-gold padre-cta">Consultar precio</a>
+        </div>
+      </div>
+      <div class="padre-card reveal" style="--d:.2s">
+        <div class="padre-img-wrap">
+          <img src="https://juanacafassovita.github.io/vita/BOX3.jpeg" alt="Box Premium" class="padre-img" />
+          <span class="padre-badge badge-navy">Premium</span>
+        </div>
+        <div class="padre-body">
+          <span class="padre-tag">Opción 3</span>
+          <h3>'Premium' Box</h3>
+          <p class="padre-subtitle">Estilo Clásico</p>
+          <p>Gin Beefeater, coctelera, vaso rocks y especias. Caja de cuero negro con presentación de lujo para el regalo más especial.</p>
+          <a href="#contact" class="btn btn-primary padre-cta">Consultar precio</a>
+        </div>
+      </div>
+    </div>
+    <div class="padre-cta-bottom reveal">
+      <p>¿Necesitás más de 10 unidades? Conseguí <strong>precio mayorista</strong> y entrega coordinada.</p>
+      <a href="#contact" class="btn btn-gold">Pedir cotización grupal</a>
+    </div>
+  </div>
+</section>
 <section class="process">
   <div class="container process-inner">
     <div class="process-head reveal">
@@ -1055,38 +387,18 @@
       <h2>Del Brief a la Puerta en 4 Simples Pasos</h2>
     </div>
     <div class="process-steps">
-      <div class="process-step reveal">
-        <div class="step-num">01</div>
-        <h4>Descubrir</h4>
-        <p>Conocemos tu marca, presupuesto y audiencia para diseñar la estrategia correcta.</p>
-      </div>
-      <div class="process-step reveal" style="--d:.1s">
-        <div class="step-num">02</div>
-        <h4>Diseñar</h4>
-        <p>Nuestro equipo selecciona productos y crea packaging personalizado a medida.</p>
-      </div>
-      <div class="process-step reveal" style="--d:.2s">
-        <div class="step-num">03</div>
-        <h4>Aprobar</h4>
-        <p>Revisás las muestras y das el visto bueno antes de avanzar a producción.</p>
-      </div>
-      <div class="process-step reveal" style="--d:.3s">
-        <div class="step-num">04</div>
-        <h4>Entregar</h4>
-        <p>Los regalos se envían a todo el mundo con seguimiento y reportes en tu panel.</p>
-      </div>
+      <div class="process-step reveal"><div class="step-num">01</div><h4>Descubrir</h4><p>Conocemos tu marca, presupuesto y audiencia para diseñar la estrategia correcta.</p></div>
+      <div class="process-step reveal" style="--d:.1s"><div class="step-num">02</div><h4>Diseñar</h4><p>Nuestro equipo selecciona productos y crea packaging personalizado a medida.</p></div>
+      <div class="process-step reveal" style="--d:.2s"><div class="step-num">03</div><h4>Aprobar</h4><p>Revisás las muestras y das el visto bueno antes de avanzar a producción.</p></div>
+      <div class="process-step reveal" style="--d:.3s"><div class="step-num">04</div><h4>Entregar</h4><p>Los regalos se envían a todo el mundo con seguimiento y reportes en tu panel.</p></div>
     </div>
   </div>
 </section>
-
-<!-- ========================
-     TESTIMONIAL
-======================== -->
 <section class="testimonial-strip">
   <div class="container">
     <div class="testimonial-inner reveal">
       <div class="stars">★★★★★</div>
-      <blockquote>"Prestige Gifts transformó nuestro programa de fidelización de clientes. La calidad, atención al detalle y la entrega impecable dejaron a nuestros clientes genuinamente impresionados — y los hizo volver."</blockquote>
+      <blockquote>"VITA transformó nuestro programa de fidelización de clientes. La calidad, atención al detalle y la entrega impecable dejaron a nuestros clientes genuinamente impresionados — y los hizo volver."</blockquote>
       <div class="testimonial-author">
         <img class="testimonial-avatar" src="https://placehold.co/100x100/dce2ed/5a6e8f?text=SL" alt="Sarah L." />
         <div>
@@ -1097,10 +409,6 @@
     </div>
   </div>
 </section>
-
-<!-- ========================
-     CONTACT
-======================== -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-grid">
@@ -1111,55 +419,32 @@
         <div class="contact-details">
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <strong>Escribinos</strong>
-              <span>hello@prestigegifts.com</span>
-            </div>
+            <div><strong>Escribinos</strong><span>contacto@vita.com.ar</span></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
-            <div>
-              <strong>Llamanos</strong>
-              <span>+1 (800) 555-0199</span>
-            </div>
+            <div><strong>Llamanos</strong><span>+54 11 0000-0000</span></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
-            <div>
-              <strong>Horario de Atención</strong>
-              <span>Lun–Vie, 9:00 – 18:00 ART</span>
-            </div>
+            <div><strong>Horario de Atención</strong><span>Lun–Vie, 9:00 – 18:00 ART</span></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-globe"></i></div>
-            <div>
-              <strong>Sede Central</strong>
-              <span>Buenos Aires · Madrid · Miami</span>
-            </div>
+            <div><strong>Sede Central</strong><span>Buenos Aires, Argentina</span></div>
           </div>
         </div>
       </div>
-
-      <!-- FORM -->
       <div class="form-card reveal">
         <h3>Solicitar Propuesta</h3>
         <p>Completá los datos y un ejecutivo de cuenta te contactará a la brevedad.</p>
         <form action="https://formspree.io/f/xykabzvr" method="POST">
           <div class="form-row">
-            <div class="form-group">
-              <label for="name">Nombre Completo *</label>
-              <input type="text" id="name" name="name" placeholder="María García" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Corporativo *</label>
-              <input type="email" id="email" name="email" placeholder="maria@empresa.com" required />
-            </div>
+            <div class="form-group"><label for="name">Nombre Completo *</label><input type="text" id="name" name="name" placeholder="María García" required /></div>
+            <div class="form-group"><label for="email">Email Corporativo *</label><input type="email" id="email" name="email" placeholder="maria@empresa.com" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group">
-              <label for="company">Empresa *</label>
-              <input type="text" id="company" name="company" placeholder="Mi Empresa S.A." required />
-            </div>
+            <div class="form-group"><label for="company">Empresa *</label><input type="text" id="company" name="company" placeholder="Mi Empresa S.A." required /></div>
             <div class="form-group">
               <label for="budget">Presupuesto Estimado</label>
               <select id="budget" name="budget">
@@ -1167,7 +452,7 @@
                 <option>Menos de $5.000</option>
                 <option>$5.000 – $25.000</option>
                 <option>$25.000 – $100.000</option>
-                <option>$100,000+</option>
+                <option>$100.000+</option>
               </select>
             </div>
           </div>
@@ -1175,89 +460,40 @@
             <label for="message">Contanos tu Proyecto *</label>
             <textarea id="message" name="message" placeholder="Cantidad de destinatarios, ocasión, plazo, requisitos especiales..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-gold form-submit">
-            <i class="fas fa-paper-plane"></i>
-            Enviar Solicitud
-          </button>
+          <button type="submit" class="btn btn-gold form-submit"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button>
           <p class="form-note"><i class="fas fa-lock"></i> Tu información está segura y nunca será compartida.</p>
         </form>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ========================
-     FOOTER
-======================== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo">
-          <span class="logo-icon"><i class="fas fa-gift"></i></span>
-          Prestige Gifts
+        <a href="#" class="logo" style="margin-bottom:16px;display:inline-flex">
+          <img src="https://juanacafassovita.github.io/vita/LOGO.webp" alt="VITA" style="height:44px;width:auto;" />
         </a>
-        <p>Ayudamos a las empresas a construir relaciones más sólidas a través de regalos corporativos premium y con propósito — entregados en cualquier lugar del mundo.</p>
+        <p>Creamos experiencias de regalo que fortalecen vínculos. Regalos empresariales premium, con identidad y propósito.</p>
       </div>
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <ul class="footer-links">
-          <li><a href="#">Colecciones Seleccionadas</a></li>
-          <li><a href="#">Branding Personalizado</a></li>
-          <li><a href="#">Programas Anuales</a></li>
-          <li><a href="#">Distribución Global</a></li>
-          <li><a href="#">Regalos para Eventos</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Empresa</h4>
-        <ul class="footer-links">
-          <li><a href="#">Quiénes Somos</a></li>
-          <li><a href="#">Casos de Éxito</a></li>
-          <li><a href="#">Sostenibilidad</a></li>
-          <li><a href="#">Empleo</a></li>
-          <li><a href="#">Prensa</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul class="footer-links">
-          <li><a href="#">Política de Privacidad</a></li>
-          <li><a href="#">Términos de Servicio</a></li>
-          <li><a href="#">Política de Cookies</a></li>
-          <li><a href="#">Accesibilidad</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Servicios</h4><ul class="footer-links"><li><a href="#">Colecciones Seleccionadas</a></li><li><a href="#">Branding Personalizado</a></li><li><a href="#">Programas Anuales</a></li><li><a href="#">Distribución Global</a></li><li><a href="#">Regalos para Eventos</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul class="footer-links"><li><a href="#">Quiénes Somos</a></li><li><a href="#">Casos de Éxito</a></li><li><a href="#">Sostenibilidad</a></li><li><a href="#">Empleo</a></li><li><a href="#">Prensa</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="#">Política de Privacidad</a></li><li><a href="#">Términos de Servicio</a></li><li><a href="#">Política de Cookies</a></li><li><a href="#">Accesibilidad</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-legal">© 2024 Prestige Corporate Gifts. Todos los derechos reservados.</p>
+      <p class="footer-legal">© 2025 VITA Regalos Empresariales. Todos los derechos reservados.</p>
       <div class="social-links">
         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-link" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
         <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
 </footer>
-
-<!-- ========================
-     JS: SCROLL REVEAL
-======================== -->
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const delay = e.target.style.getPropertyValue('--d') || '0s';
-        e.target.style.transitionDelay = delay;
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
+  const reveals=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const delay=e.target.style.getPropertyValue('--d')||'0s';e.target.style.transitionDelay=delay;e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.12});
+  reveals.forEach(el=>io.observe(el));
 </script>
-
 </body>
 </html>
